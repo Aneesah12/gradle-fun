@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'org.junit.platform.gradle.plugin'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+task getHomeDir << {
+	println gradle.gradleHomeDir
+}
+
+mainClassName = 'hello.HelloWorld'
+
+repositories {
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile "com.github.mpkorstanje:simmetrics-core:4.1.1"
+	compile "joda-time:joda-time:2.2"
+	testCompile "junit:junit:4.12"
+}
+
+
+jar {
+	baseName = 'gs-gradle'
+	version =  '0.1.0'
+}
+
+apply plugin: 'application'
+
+mainClassName = 'hello.HelloWorld'
